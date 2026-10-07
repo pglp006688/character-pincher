@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff7fb">
+  <title>人物捏捏乐</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">🤏</div>
+      <div>
+        <div class="brand-title">人物捏捏乐</div>
+        <div class="brand-subtitle">把人物捏成你喜欢的样子</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="undoBtn" title="撤销">↶</button>
+      <button class="icon-btn" id="redoBtn" title="重做">↷</button>
+      <button class="ghost-btn" id="resetBtn">恢复原样</button>
+      <button class="primary-btn" id="exportBtn">↓ 导出 PNG</button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section class="stage-card">
+      <div class="stage-head">
+        <div>
+          <span class="eyebrow">PLAYGROUND</span>
+          <h1 id="characterTitle">选择一个人物开始捏</h1>
+        </div>
+        <div class="status-pill"><span></span> 已准备好</div>
+      </div>
+
+      <div class="canvas-wrap" id="canvasWrap">
+        <canvas id="canvas"></canvas>
+        <div class="hint" id="hint">
+          <span>🤏</span>
+          <b>按住人物拖动</b>
+          <small>试试看把脸蛋捏大一点</small>
+        </div>
+      </div>
+
+      <div class="stage-foot">
+        <div class="tip">💡 开启「橡皮泥模式」后，形变会更柔和自然</div>
+        <div class="zoom-control">
+          <button id="zoomOut">−</button>
+          <span id="zoomValue">100%</span>
+          <button id="zoomIn">＋</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <div class="panel-section">
+        <div class="section-title">人物</div>
+        <div class="character-list" id="characterList"></div>
+      </div>
+
+      <div class="panel-section">
+        <div class="section-title">
+          <span>捏捏工具</span>
+          <span class="muted" id="toolLabel">自由捏</span>
+        </div>
+        <div class="tool-grid">
+          <button class="tool active" data-tool="free"><span>🤏</span><b>自由捏</b><small>局部变形</small></button>
+          <button class="tool" data-tool="big"><span>🫧</span><b>放大</b><small>鼓起来</small></button>
+          <button class="tool" data-tool="small"><span>🫠</span><b>缩小</b><small>压进去</small></button>
+          <button class="tool" data-tool="stretch"><span>↕️</span><b>拉长</b><small>纵向拉伸</small></button>
+          <button class="tool" data-tool="wide"><span>↔️</span><b>压扁</b><small>横向变形</small></button>
+          <button class="tool" data-tool="twist"><span>🌀</span><b>旋一旋</b><small>轻微扭曲</small></button>
+        </div>
+      </div>
+
+      <div class="panel-section clay-section">
+        <div class="clay-row">
+          <div>
+            <div class="section-title">🪨 橡皮泥模式</div>
+            <p>保留人物整体形状，让局部变形更自然。</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="clayMode" checked>
+            <span></span>
+          </label>
+        </div>
+        <div class="range-row">
+          <label>力度</label>
+          <input type="range" id="strength" min="5" max="80" value="38">
+          <output id="strengthValue">38</output>
+        </div>
+        <div class="range-row">
+          <label>范围</label>
+          <input type="range" id="radius" min="30" max="220" value="105">
+          <output id="radiusValue">105</output>
+        </div>
+      </div>
+
+      <div class="panel-section help">
+        <div class="help-item"><span>🖱️</span><div><b>鼠标</b><small>按住拖动进行捏脸</small></div></div>
+        <div class="help-item"><span>📱</span><div><b>手机</b><small>手指拖动人物进行捏脸</small></div></div>
+        <div class="help-item"><span>⌨️</span><div><b>快捷键</b><small>R 重置 · Ctrl/Cmd+Z 撤销</small></div></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer>人物捏捏乐 · GitHub Pages Edition</footer>
+  <script src="characters.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
